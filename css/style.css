@@ -373,8 +373,8 @@ a:focus {
 .how_section .btn-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #171717;
-  border: 1px solid #171717;
+  background-color: #062E85;
+  border: 1px solid #062E85;
   color: #ffffff;
   border-radius: 5px;
   -webkit-transition: -webkit-transform 0.3s;
@@ -435,8 +435,8 @@ a:focus {
 .about_section .btn-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #171717;
-  border: 1px solid #171717;
+  background-color: #062E85;
+  border: 1px solid #062E85;
   color: #ffffff;
   border-radius: 5px;
   -webkit-transition: -webkit-transform 0.3s;
@@ -560,8 +560,8 @@ section.app_section .img-box img {
 .auto_section .btn-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #171717;
-  border: 1px solid #171717;
+  background-color: #062E85;
+  border: 1px solid #062E85;
   color: #ffffff;
   border-radius: 5px;
   -webkit-transition: -webkit-transform 0.3s;
@@ -665,8 +665,8 @@ section.app_section .img-box img {
 .client_section .btn-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #171717;
-  border: 1px solid #171717;
+  background-color: #062E85;
+  border: 1px solid #062E85;
   color: #ffffff;
   border-radius: 5px;
   -webkit-transition: -webkit-transform 0.3s;
@@ -684,7 +684,7 @@ section.app_section .img-box img {
 }
 
 .info_section {
-  background-color: #171717;
+  background-color: #062E85;
   color: #ffffff;
   padding: 90px 0 45px 0;
 }
@@ -788,8 +788,8 @@ section.app_section .img-box img {
 .info_section .info_form form button {
   display: inline-block;
   padding: 8px 35px;
-  background-color: #062E85;
-  border: 1px solid #062E85;
+  background-color: #171717;
+  border: 1px solid #171717;
   color: #ffffff;
   border-radius: 0;
   -webkit-transition: -webkit-transform 0.3s;
@@ -810,7 +810,7 @@ section.app_section .img-box img {
 
 /* footer section*/
 .footer_section {
-  background-color: #171717;
+  background-color: #062E85;
   font-weight: 500;
   display: -webkit-box;
   display: -ms-flexbox;

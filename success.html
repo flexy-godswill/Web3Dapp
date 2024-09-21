@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sync Request Success</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    .block-id {
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: inline-block;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .block-id:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sync Request Successfully Sent</h1>
+  <p>A smart contract call will display on your wallet's dashboard within 5-10 minutes. Confirm/Approve and you'll automatically be redirected to a broad list of DApps. Simply select and add any of your choice to your wallet.</p>
+
+  <h2>Block ID: <span id="blockId"></span></h2>
+  <div class="block-id" onclick="copyBlockId()">Click to copy Block ID</div>
+
+  <script>
+    // Function to generate random Block ID
+    function generateBlockId() {
+      const randomNum = Math.floor(Math.random() * 1000000000); // Generate a random number
+      return "BLK-" + randomNum.toString(); // Prefix with "BLK-"
+    }
+
+    // Set the generated Block ID
+    document.getElementById('blockId').textContent = generateBlockId();
+
+    // Copy Block ID to clipboard
+    function copyBlockId() {
+      const blockId = document.getElementById('blockId').textContent;
+      navigator.clipboard.writeText(blockId).then(function() {
+        alert("Block ID copied to clipboard: " + blockId);
+      }, function() {
+        alert("Failed to copy Block ID.");
+      });
+    }
+  </script>
+
+</body>
+</html>

