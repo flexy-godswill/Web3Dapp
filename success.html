@@ -4,33 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sync Request Success</title>
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 50px;
-    }
-    .block-id {
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
-      padding: 10px;
-      display: inline-block;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .block-id:hover {
-      background-color: #ddd;
-    }
-  </style>
+  <link rel="stylesheet" href="css/successfullysent.css">
 </head>
 <body>
 
-  <h1>Sync Request Successfully Sent</h1>
-  <p>A smart contract call will display on your wallet's dashboard within 5-10 minutes. Confirm/Approve and you'll automatically be redirected to a broad list of DApps. Simply select and add any of your choice to your wallet.</p>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <h2 class="active underlinehover">Sync Request Successfully Sent</h2>
+      <div class="fadeIn First">
+        <p>
+          A smart contract call will display on your wallet's dashboard within
+          5-10 minutes. <br />
+          Confirm/Approve and you'll automatically be redirected to a broad
+          list of DApps. <br />
+          Simply select and add any of your choice to your wallet.
+        </p>
+      </div>
 
-  <h2>Block ID: <span id="blockId"></span></h2>
-  <div class="block-id" onclick="copyBlockId()">Click to copy Block ID</div>
+      <div class="fadein Second">
+        <h2>Block ID: <span id="blockId"></span></h2>
+
+        <div id="formFooter">
+          <div class="block-id" onclick="copyBlockId()">
+            Click to copy Block ID
+          </div>
+        </div>
+    </div>
+  </div>
 
   <script>
     // Function to generate random Block ID
@@ -52,6 +52,5 @@
       });
     }
   </script>
-
 </body>
 </html>
